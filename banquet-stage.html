@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banquet Stage Setup</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px 0;
+      min-height: 100vh;
+    }
+    
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    .content-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    
+    .menu-container {
+      flex: 1;
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    }
+    
+    .selection-sidebar {
+      width: 350px;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 20px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    h2 {
+      color: #4facfe;
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 2.5em;
+    }
+    
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 1.1em;
+    }
+    
+    .filter-section {
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 10px;
+    }
+    
+    .filter-label {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+    
+    .filter-btn {
+      margin: 5px;
+      padding: 8px 20px;
+      border: 2px solid #4facfe;
+      background: white;
+      color: #4facfe;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .filter-btn:hover {
+      background: #4facfe;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(79, 172, 254, 0.3);
+    }
+    
+    .filter-btn.active {
+      background: #4facfe;
+      color: white;
+    }
+    
+    .panel-group {
+      margin-top: 20px;
+    }
+    
+    .panel {
+      border: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 12px;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .panel:hover {
+      box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+      transform: translateY(-2px);
+    }
+    
+    .panel-heading {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      border: none;
+      padding: 0;
+    }
+    
+    .panel-title a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1em;
+      transition: all 0.3s ease;
+    }
+    
+    .panel-title a:hover {
+      background: rgba(255,255,255,0.1);
+      text-decoration: none;
+    }
+    
+    .panel-title a:after {
+      content: '\25BC';
+      float: right;
+      transition: transform 0.3s ease;
+      font-size: 0.8em;
+    }
+    
+    .panel-title a.collapsed:after {
+      transform: rotate(-90deg);
+    }
+    
+    .panel-body {
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    
+    .menu-item {
+      background: white;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border-left: 4px solid #4facfe;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .menu-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .menu-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .item-checkbox {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    
+    .item-details {
+      flex: 1;
+    }
+    
+    .item-name {
+      font-weight: 600;
+      color: #333;
+      font-size: 1.05em;
+      margin-bottom: 3px;
+    }
+    
+    .item-description {
+      color: #666;
+      font-size: 0.9em;
+      margin: 0;
+    }
+    
+    .item-price {
+      flex-shrink: 0;
+      font-weight: 700;
+      color: #4facfe;
+      font-size: 1.1em;
+    }
+    
+    .item-type {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.75em;
+      font-weight: 600;
+      margin-left: 8px;
+      text-transform: uppercase;
+    }
+    
+    .type-standard {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .type-premium {
+      background: #fff3cd;
+      color: #856404;
+    }
+    
+    .type-luxury {
+      background: #cce5ff;
+      color: #004085;
+    }
+    
+    .selection-header {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #4facfe;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #4facfe;
+    }
+    
+    .selected-item {
+      background: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .selected-item-name {
+      font-weight: 500;
+      color: #333;
+      flex: 1;
+    }
+    
+    .selected-item-price {
+      font-weight: 600;
+      color: #4facfe;
+      margin-left: 10px;
+    }
+    
+    .remove-btn {
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-left: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .remove-btn:hover {
+      background: #c82333;
+      transform: scale(1.1);
+    }
+    
+    .total-section {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 2px solid #4facfe;
+      font-size: 1.3em;
+      font-weight: 700;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .total-price {
+      color: #4facfe;
+    }
+    
+    .empty-selection {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      font-style: italic;
+    }
+    
+    .clear-all-btn {
+      width: 100%;
+      padding: 10px;
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .clear-all-btn:hover {
+      background: #c82333;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+    }
+    
+    .order-form {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 2px solid #4facfe;
+    }
+    
+    .form-group {
+      margin-bottom: 12px;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.95em;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #4facfe;
+    }
+    
+    .send-order-btn {
+      width: 100%;
+      padding: 12px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.05em;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .send-order-btn:hover {
+      background: #218838;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+    }
+    
+    .send-order-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+      text-align: center;
+      font-weight: 600;
+      display: none;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #4facfe;
+      font-size: 1.2em;
+    }
+    
+    @media (max-width: 992px) {
+      .content-wrapper {
+        flex-direction: column;
+      }
+      
+      .selection-sidebar {
+        width: 100%;
+        position: relative;
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+  <div class="content-wrapper">
+    <div class="menu-container">
+      <h2>Banquet Stage Setup</h2>
+      <p class="subtitle">Create the perfect stage for your special moments</p>
+      
+      <div class="filter-section">
+        <div class="filter-label">Filter by Package:</div>
+        <button class="filter-btn active" data-filter="all">All Items</button>
+        <button class="filter-btn" data-filter="standard">Standard</button>
+        <button class="filter-btn" data-filter="premium">Premium</button>
+        <button class="filter-btn" data-filter="luxury">Luxury</button>
+      </div>
+      
+      <div id="loading" class="loading">Loading stage options...</div>
+      <div class="panel-group" id="accordion" style="display: none;"></div>
+    </div>
+    
+    <div class="selection-sidebar">
+      <div class="selection-header">Your Selection</div>
+      <div id="selected-items">
+        <div class="empty-selection">No items selected yet. Click on items to add them to your order.</div>
+      </div>
+      <div id="total-section" style="display: none;">
+        <div class="total-section">
+          <span>Total:</span>
+          <span class="total-price">₹<span id="total-price">0</span></span>
+        </div>
+        <button class="clear-all-btn" id="clear-all">Clear All</button>
+        
+        <div class="order-form">
+          <div class="form-group">
+            <label class="form-label">Your Name *</label>
+            <input type="text" class="form-input" id="customer-name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Email *</label>
+            <input type="email" class="form-input" id="customer-email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" id="customer-phone" placeholder="Enter phone number" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Event Date</label>
+            <input type="date" class="form-input" id="event-date">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Venue Name</label>
+            <input type="text" class="form-input" id="venue-name" placeholder="Event venue">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Additional Notes</label>
+            <textarea class="form-input" id="notes" rows="2" placeholder="Any special requests..."></textarea>
+          </div>
+          <button class="send-order-btn" id="send-order">Send Stage Setup Request</button>
+          <div class="success-message" id="success-message">Request sent successfully!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  let menuData = {};
+  let selectedItems = [];
+  let currentFilter = 'all';
+  
+  // Stage categories mapping
+  const menuCategories = [
+    { key: 'stageSetup', title: 'Stage Platform', icon: '🎪' },
+    { key: 'backdrop', title: 'Stage Backdrop', icon: '🖼️' },
+    { key: 'podium', title: 'Podium', icon: '🎤' },
+    { key: 'stageDecor', title: 'Stage Decoration', icon: '✨' },
+    { key: 'carpet', title: 'Stage Carpet', icon: '🧶' },
+    { key: 'specialEffects', title: 'Special Effects', icon: '🎆' }
+  ];
+
+  // Load stage data
+  $.getJSON('banquet-stage.json', function(data) {
+    menuData = data;
+    renderMenu();
+    $('#loading').hide();
+  }).fail(function() {
+    $('#loading').html('Error loading stage options. Please make sure banquet-stage.json is in the same directory.').css('color', '#dc3545');
+  });
+  
+  // Filter buttons
+  $('.filter-btn').click(function() {
+    $('.filter-btn').removeClass('active');
+    $(this).addClass('active');
+    currentFilter = $(this).data('filter');
+    renderMenu();
+  });
+  
+  // Render menu based on filter
+  function renderMenu() {
+    let accordionHTML = '';
+    
+    menuCategories.forEach(function(category, index) {
+      const items = menuData[category.key];
+      if (!items || items.length === 0) return;
+      
+      // Filter items based on current filter
+      const filteredItems = items.filter(item => {
+        if (currentFilter === 'all') return true;
+        return item.type === currentFilter;
+      });
+      
+      if (filteredItems.length === 0) return;
+      
+      const collapseId = 'collapse' + (index + 1);
+      
+      // Build menu items HTML
+      let itemsHTML = '';
+      filteredItems.forEach(function(item) {
+        const typeClass = 'type-' + item.type;
+        const typeLabel = item.type.toUpperCase();
+        
+        const itemId = category.key + '_' + item.name.replace(/\s+/g, '_');
+        const isChecked = selectedItems.some(si => si.id === itemId) ? 'checked' : '';
+        
+        itemsHTML += `
+          <div class="menu-item">
+            <input type="checkbox" class="item-checkbox" data-id="${itemId}" 
+                   data-name="${item.name}" data-price="${item.price}" 
+                   data-category="${category.title}" ${isChecked}>
+            <div class="item-details">
+              <div class="item-name">
+                ${item.name}
+                <span class="item-type ${typeClass}">${typeLabel}</span>
+              </div>
+              <p class="item-description">${item.description}</p>
+            </div>
+            <div class="item-price">₹${item.price}</div>
+          </div>
+        `;
+      });
+      
+      // Build accordion panel
+      accordionHTML += `
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#${collapseId}" class="collapsed">
+                ${category.icon} ${category.title}
+              </a>
+            </h4>
+          </div>
+          <div id="${collapseId}" class="panel-collapse collapse">
+            <div class="panel-body">
+              ${itemsHTML}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    
+    if (accordionHTML === '') {
+      accordionHTML = '<div style="text-align: center; padding: 40px; color: #999;">No items found for this filter.</div>';
+    }
+    
+    // Insert into DOM
+    $('#accordion').html(accordionHTML).fadeIn();
+    
+    // Attach checkbox event handlers
+    $('.item-checkbox').change(handleItemSelection);
+  }
+  
+  // Handle item selection
+  function handleItemSelection() {
+    const checkbox = $(this);
+    const itemId = checkbox.data('id');
+    const itemName = checkbox.data('name');
+    const itemPrice = checkbox.data('price');
+    const itemCategory = checkbox.data('category');
+    
+    if (checkbox.is(':checked')) {
+      selectedItems.push({
+        id: itemId,
+        name: itemName,
+        price: itemPrice,
+        category: itemCategory
+      });
+    } else {
+      selectedItems = selectedItems.filter(item => item.id !== itemId);
+    }
+    
+    updateSelectionDisplay();
+  }
+  
+  // Update selection display
+  function updateSelectionDisplay() {
+    if (selectedItems.length === 0) {
+      $('#selected-items').html('<div class="empty-selection">No items selected yet. Click on items to add them to your order.</div>');
+      $('#total-section').hide();
+    } else {
+      let itemsHTML = '';
+      selectedItems.forEach(item => {
+        itemsHTML += `
+          <div class="selected-item">
+            <span class="selected-item-name">${item.name}</span>
+            <span class="selected-item-price">₹${item.price}</span>
+            <button class="remove-btn" data-id="${item.id}">×</button>
+          </div>
+        `;
+      });
+      
+      $('#selected-items').html(itemsHTML);
+      $('#total-section').show();
+      
+      // Calculate total
+      const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
+      $('#total-price').text(total);
+      
+      // Attach remove button handlers
+      $('.remove-btn').click(function() {
+        const itemId = $(this).data('id');
+        $(`.item-checkbox[data-id="${itemId}"]`).prop('checked', false);
+        selectedItems = selectedItems.filter(item => item.id !== itemId);
+        updateSelectionDisplay();
+      });
+    }
+  }
+  
+  // Clear all button
+  $('#clear-all').click(function() {
+    selectedItems = [];
+    $('.item-checkbox').prop('checked', false);
+    updateSelectionDisplay();
+  });
+  
+  // Send order button
+  $('#send-order').click(function() {
+    const name = $('#customer-name').val().trim();
+    const email = $('#customer-email').val().trim();
+    const phone = $('#customer-phone').val().trim();
+    const eventDate = $('#event-date').val();
+    const venueName = $('#venue-name').val();
+    const notes = $('#notes').val().trim();
+    
+    // Validation
+    if (!name || !email || !phone) {
+      alert('Please fill in all required fields (Name, Email, Phone)');
+      return;
+    }
+    
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+    
+    if (selectedItems.length === 0) {
+      alert('Please select at least one stage item');
+      return;
+    }
+    
+    // Build order details
+    let orderDetails = `BANQUET STAGE SETUP REQUEST\n\n`;
+    orderDetails += `Customer Details:\n`;
+    orderDetails += `Name: ${name}\n`;
+    orderDetails += `Email: ${email}\n`;
+    orderDetails += `Phone: ${phone}\n`;
+    if (eventDate) orderDetails += `Event Date: ${eventDate}\n`;
+    if (venueName) orderDetails += `Venue: ${venueName}\n`;
+    orderDetails += `\n`;
+    
+    orderDetails += `Stage Setup Summary:\n`;
+    orderDetails += `${'='.repeat(50)}\n`;
+    
+    // Group items by category
+    const itemsByCategory = {};
+    selectedItems.forEach(item => {
+      if (!itemsByCategory[item.category]) {
+        itemsByCategory[item.category] = [];
+      }
+      itemsByCategory[item.category].push(item);
+    });
+    
+    // Add items by category
+    Object.keys(itemsByCategory).forEach(category => {
+      orderDetails += `\n${category}:\n`;
+      itemsByCategory[category].forEach(item => {
+        orderDetails += `  - ${item.name} - ₹${item.price}\n`;
+      });
+    });
+    
+    orderDetails += `\n${'='.repeat(50)}\n`;
+    const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
+    orderDetails += `Total Amount: ₹${total}\n`;
+    
+    if (notes) {
+      orderDetails += `\nAdditional Notes:\n${notes}\n`;
+    }
+    
+    // Change this to your business email
+    const businessEmail = 'stage@yourbusiness.com';
+    
+    // Create mailto link
+    const subject = `Banquet Stage Setup Request - ${name}`;
+    const body = encodeURIComponent(orderDetails);
+    const mailtoLink = `mailto:${businessEmail}?cc=${email}&subject=${encodeURIComponent(subject)}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    $('#success-message').fadeIn();
+    setTimeout(function() {
+      $('#success-message').fadeOut();
+    }, 3000);
+  });
+});
+</script>
+    
+</body>
+</html>

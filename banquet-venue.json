@@ -1,0 +1,36 @@
+{
+    "hallRent": [
+        {"name": "Small Hall (up to 50 guests)", "description": "Compact hall for intimate gatherings", "type": "standard", "price": 5000},
+        {"name": "Medium Hall (50-100 guests)", "description": "Mid-size hall for moderate events", "type": "standard", "price": 10000},
+        {"name": "Large Hall (100-200 guests)", "description": "Spacious hall for big events", "type": "premium", "price": 20000},
+        {"name": "Grand Banquet Hall (200-500 guests)", "description": "Premium large venue", "type": "premium", "price": 35000},
+        {"name": "Luxury Ballroom (500+ guests)", "description": "Luxury venue for mega events", "type": "luxury", "price": 50000},
+        {"name": "Outdoor Lawn Area", "description": "Open air venue space", "type": "standard", "price": 15000},
+        {"name": "Rooftop Venue", "description": "Terrace venue with city views", "type": "premium", "price": 25000}
+    ],
+    "utilities": [
+        {"name": "Electricity Charges (Basic)", "description": "Standard power consumption for event", "type": "standard", "price": 2000},
+        {"name": "Electricity Charges (Premium)", "description": "Heavy usage with AC and lighting", "type": "premium", "price": 5000},
+        {"name": "Generator Backup", "description": "Power backup for entire event", "type": "standard", "price": 3000},
+        {"name": "Water Supply", "description": "Fresh water supply for event", "type": "standard", "price": 500},
+        {"name": "Housekeeping Service", "description": "Cleaning before and after event", "type": "standard", "price": 2000}
+    ],
+    "amenities": [
+        {"name": "Air Conditioning (Full Hall)", "description": "Complete AC coverage for hall", "type": "premium", "price": 8000},
+        {"name": "Restroom Facilities", "description": "Clean washroom maintenance", "type": "standard", "price": 1000},
+        {"name": "Changing Rooms", "description": "Private rooms for guests", "type": "standard", "price": 1500},
+        {"name": "Kitchen Access", "description": "Professional kitchen for caterers", "type": "standard", "price": 3000},
+        {"name": "Storage Room", "description": "Secure storage for belongings", "type": "standard", "price": 500}
+    ],
+    "timing": [
+        {"name": "Morning Slot (6 AM - 12 PM)", "description": "6 hour morning event slot", "type": "standard", "price": 8000},
+        {"name": "Afternoon Slot (12 PM - 6 PM)", "description": "6 hour afternoon event slot", "type": "standard", "price": 10000},
+        {"name": "Evening Slot (6 PM - 12 AM)", "description": "6 hour evening event slot", "type": "premium", "price": 15000},
+        {"name": "Full Day (12 hours)", "description": "12 hour venue access", "type": "premium", "price": 25000},
+        {"name": "Extended Hours (per extra hour)", "description": "Additional time beyond booked slot", "type": "standard", "price": 2000}
+    ],
+    "deposit": [
+        {"name": "Security Deposit", "description": "Refundable security deposit", "type": "standard", "price": 10000},
+        {"name": "Advance Booking Fee", "description": "Non-refundable booking advance", "type": "standard", "price": 5000}
+    ]
+}

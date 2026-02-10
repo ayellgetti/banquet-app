@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banquet Planning System</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 40px 0;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 50px;
+    }
+    
+    .header h1 {
+      font-size: 3em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .header p {
+      font-size: 1.3em;
+      opacity: 0.9;
+    }
+    
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      text-decoration: none;
+    }
+    
+    .card-icon {
+      font-size: 3.5em;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .card-title {
+      font-size: 1.6em;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .card-description {
+      color: #666;
+      font-size: 1em;
+      line-height: 1.6;
+    }
+    
+    .card-menu { --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .card-decorations { --gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .card-stage { --gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .card-chairs { --gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+    .card-extras { --gradient: linear-gradient(135deg, #f5af19 0%, #f12711 100%); }
+    
+    .card:before {
+      background: var(--gradient);
+    }
+    
+    .feature-list {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .feature-list h3 {
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .feature {
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+    }
+    
+    .feature-icon {
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+    
+    .feature-text {
+      color: #555;
+      font-weight: 500;
+    }
+    
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2em;
+      }
+      
+      .header p {
+        font-size: 1.1em;
+      }
+      
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Complete Banquet Planning System</h1>
+    <p>Plan your perfect event with our comprehensive selection tools</p>
+  </div>
+  
+  <div class="cards-grid">
+    <a href="banquet-menu.html" class="card card-menu">
+      <span class="card-icon">🍽️</span>
+      <div class="card-title">Menu Selection</div>
+      <div class="card-description">
+        Browse our complete banquet menu with appetizers, main courses, desserts, and beverages. Filter by vegetarian and non-vegetarian options.
+      </div>
+    </a>
+    
+    <a href="banquet-decorations.html" class="card card-decorations">
+      <span class="card-icon">🌸</span>
+      <div class="card-title">Decorations</div>
+      <div class="card-description">
+        Choose from flowers, lighting, drapes, balloons, centerpieces, and complete theme packages for your event.
+      </div>
+    </a>
+    
+    <a href="banquet-stage.html" class="card card-stage">
+      <span class="card-icon">🎪</span>
+      <div class="card-title">Stage Setup</div>
+      <div class="card-description">
+        Select stage platforms, backdrops, podiums, carpets, and special effects to create the perfect presentation area.
+      </div>
+    </a>
+    
+    <a href="banquet-chairs.html" class="card card-chairs">
+      <span class="card-icon">🪑</span>
+      <div class="card-title">Chairs & Seating</div>
+      <div class="card-description">
+        Pick from various chair types, covers, sashes, and seating arrangements to accommodate your guests comfortably.
+      </div>
+    </a>
+    
+    <a href="banquet-extras.html" class="card card-extras">
+      <span class="card-icon">🎭</span>
+      <div class="card-title">Extras & Services</div>
+      <div class="card-description">
+        Add entertainment, photography, sound systems, catering staff, valet parking, and other essential services.
+      </div>
+    </a>
+  </div>
+  
+  <div class="feature-list">
+    <h3>System Features</h3>
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">✅</span>
+        <span class="feature-text">Interactive selection with checkboxes</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">💰</span>
+        <span class="feature-text">Real-time price calculation</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🔍</span>
+        <span class="feature-text">Filter by package type</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">📱</span>
+        <span class="feature-text">Mobile responsive design</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">📧</span>
+        <span class="feature-text">Email quote requests</span>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">📋</span>
+        <span class="feature-text">Organized by categories</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

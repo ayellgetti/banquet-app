@@ -1,0 +1,52 @@
+{
+    "flowers": [
+        {"name": "Rose Centerpieces", "description": "Fresh rose arrangements for tables", "type": "standard", "price": 500},
+        {"name": "Orchid Arrangements", "description": "Elegant orchid decorations", "type": "premium", "price": 800},
+        {"name": "Lily Bouquets", "description": "White lily flower arrangements", "type": "standard", "price": 600},
+        {"name": "Mixed Flower Garlands", "description": "Colorful flower garlands", "type": "standard", "price": 300},
+        {"name": "Artificial Flower Decorations", "description": "Long-lasting artificial arrangements", "type": "budget", "price": 250}
+    ],
+    "lighting": [
+        {"name": "LED String Lights", "description": "Warm white string lighting", "type": "standard", "price": 1000},
+        {"name": "Chandelier Rental", "description": "Crystal chandelier for main area", "type": "premium", "price": 3000},
+        {"name": "Uplighting (per unit)", "description": "Colored LED uplights", "type": "standard", "price": 300},
+        {"name": "Fairy Lights", "description": "Decorative fairy light draping", "type": "budget", "price": 500},
+        {"name": "Pin Spot Lighting", "description": "Focused table lighting", "type": "standard", "price": 400},
+        {"name": "Moving Head Lights", "description": "Dynamic stage lighting", "type": "premium", "price": 2000}
+    ],
+    "drapes": [
+        {"name": "Ceiling Draping", "description": "Full ceiling fabric draping", "type": "premium", "price": 5000},
+        {"name": "Wall Draping", "description": "Wall fabric decorations", "type": "standard", "price": 2000},
+        {"name": "Table Draping", "description": "Premium table cloth and draping", "type": "standard", "price": 150},
+        {"name": "Entrance Draping", "description": "Grand entrance decoration", "type": "standard", "price": 1500},
+        {"name": "Backdrop Draping", "description": "Stage backdrop fabric", "type": "standard", "price": 1200}
+    ],
+    "balloons": [
+        {"name": "Balloon Arch", "description": "Entrance balloon arch decoration", "type": "standard", "price": 1200},
+        {"name": "Helium Balloons (per 50)", "description": "Floating helium balloons", "type": "budget", "price": 500},
+        {"name": "Balloon Centerpieces", "description": "Table balloon decorations", "type": "budget", "price": 200},
+        {"name": "Balloon Wall", "description": "Photo backdrop balloon wall", "type": "standard", "price": 2000},
+        {"name": "LED Balloons (per 50)", "description": "Light-up LED balloons", "type": "premium", "price": 800}
+    ],
+    "centerpieces": [
+        {"name": "Candle Centerpieces", "description": "Elegant candle arrangements", "type": "standard", "price": 300},
+        {"name": "Crystal Centerpieces", "description": "Sparkling crystal decorations", "type": "premium", "price": 600},
+        {"name": "Floating Candles", "description": "Water bowl with floating candles", "type": "standard", "price": 250},
+        {"name": "LED Centerpieces", "description": "Modern LED light centerpieces", "type": "premium", "price": 500},
+        {"name": "Theme-based Centerpieces", "description": "Custom theme decorations", "type": "premium", "price": 700}
+    ],
+    "entrance": [
+        {"name": "Welcome Board", "description": "Customized welcome signage", "type": "standard", "price": 800},
+        {"name": "Red Carpet", "description": "VIP red carpet entrance", "type": "standard", "price": 1000},
+        {"name": "Flower Archway", "description": "Grand flower entrance arch", "type": "premium", "price": 3500},
+        {"name": "LED Name Board", "description": "Illuminated name display", "type": "premium", "price": 2000},
+        {"name": "Pathway Lighting", "description": "Entrance pathway lights", "type": "standard", "price": 1500}
+    ],
+    "themeDecor": [
+        {"name": "Royal Theme Package", "description": "Complete royal theme decoration", "type": "premium", "price": 15000},
+        {"name": "Garden Theme Package", "description": "Natural garden theme setup", "type": "standard", "price": 10000},
+        {"name": "Bollywood Theme Package", "description": "Filmy Bollywood decorations", "type": "standard", "price": 12000},
+        {"name": "Rustic Theme Package", "description": "Vintage rustic decorations", "type": "standard", "price": 11000},
+        {"name": "Contemporary Theme Package", "description": "Modern minimalist decor", "type": "premium", "price": 13000}
+    ]
+}

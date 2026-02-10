@@ -1,0 +1,35 @@
+{
+    "chairTypes": [
+        {"name": "Standard Banquet Chairs", "description": "Basic comfortable seating (per chair)", "type": "standard", "price": 50},
+        {"name": "Chiavari Chairs", "description": "Elegant gold/silver chairs (per chair)", "type": "premium", "price": 100},
+        {"name": "Ghost Chairs", "description": "Modern transparent acrylic (per chair)", "type": "premium", "price": 120},
+        {"name": "Wooden Chairs", "description": "Classic wooden seating (per chair)", "type": "standard", "price": 60},
+        {"name": "Throne Chairs", "description": "Royal throne for bride/groom (pair)", "type": "luxury", "price": 2000},
+        {"name": "Bar Stools", "description": "High seating for bar area (per stool)", "type": "standard", "price": 80}
+    ],
+    "chairCovers": [
+        {"name": "Basic Chair Covers", "description": "Standard fabric covers (per chair)", "type": "standard", "price": 30},
+        {"name": "Premium Chair Covers", "description": "High-quality stretch covers (per chair)", "type": "premium", "price": 50},
+        {"name": "Ruffled Chair Covers", "description": "Decorative ruffled covers (per chair)", "type": "premium", "price": 60},
+        {"name": "Custom Color Covers", "description": "Theme color matched covers (per chair)", "type": "standard", "price": 40}
+    ],
+    "sashes": [
+        {"name": "Satin Sashes", "description": "Elegant satin chair sashes (per chair)", "type": "standard", "price": 20},
+        {"name": "Organza Sashes", "description": "Sheer organza sashes (per chair)", "type": "standard", "price": 25},
+        {"name": "Sequin Sashes", "description": "Sparkly sequin sashes (per chair)", "type": "premium", "price": 35},
+        {"name": "Floral Sashes", "description": "Fresh flower sash decoration (per chair)", "type": "premium", "price": 50}
+    ],
+    "seatingArrangement": [
+        {"name": "Round Table Setup (8 seater)", "description": "Complete round table with chairs", "type": "standard", "price": 500},
+        {"name": "Rectangular Table Setup (10 seater)", "description": "Long table with seating", "type": "standard", "price": 600},
+        {"name": "Theater Style Setup (per row)", "description": "Rows of chairs for presentations", "type": "standard", "price": 300},
+        {"name": "U-Shape Setup", "description": "U-shaped conference seating", "type": "standard", "price": 2000},
+        {"name": "Cocktail Setup (standing)", "description": "High tables with bar stools", "type": "standard", "price": 400}
+    ],
+    "specialSeating": [
+        {"name": "VIP Lounge Seating", "description": "Luxury sofa and couch setup", "type": "luxury", "price": 5000},
+        {"name": "Kids Seating Area", "description": "Child-friendly colorful chairs", "type": "standard", "price": 800},
+        {"name": "Outdoor Seating", "description": "Weather-resistant outdoor chairs (per chair)", "type": "standard", "price": 70},
+        {"name": "Bench Seating", "description": "Long bench seating (per bench)", "type": "budget", "price": 150}
+    ]
+}

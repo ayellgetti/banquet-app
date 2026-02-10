@@ -1,0 +1,50 @@
+{
+    "entertainment": [
+        {"name": "DJ Services (4 hours)", "description": "Professional DJ with sound system", "type": "standard", "price": 8000},
+        {"name": "Live Band (4 hours)", "description": "Professional music band performance", "type": "premium", "price": 15000},
+        {"name": "Emcee/Host Services", "description": "Professional event host", "type": "standard", "price": 5000},
+        {"name": "Magician", "description": "Magic show and tricks", "type": "standard", "price": 4000},
+        {"name": "Standup Comedian", "description": "Comedy entertainment", "type": "standard", "price": 6000},
+        {"name": "Dance Group Performance", "description": "Professional dance troupe", "type": "premium", "price": 12000}
+    ],
+    "photography": [
+        {"name": "Photography Package (4 hours)", "description": "Professional photographer with editing", "type": "standard", "price": 10000},
+        {"name": "Videography Package (4 hours)", "description": "Professional videographer with editing", "type": "standard", "price": 12000},
+        {"name": "Photo + Video Combo", "description": "Combined photography services", "type": "premium", "price": 20000},
+        {"name": "Drone Photography", "description": "Aerial drone shots", "type": "premium", "price": 5000},
+        {"name": "Photo Booth Setup", "description": "Selfie booth with props", "type": "standard", "price": 3000},
+        {"name": "360 Photo Booth", "description": "360-degree video booth", "type": "luxury", "price": 8000}
+    ],
+    "soundSystem": [
+        {"name": "Basic Sound System", "description": "Speakers and microphone setup", "type": "standard", "price": 3000},
+        {"name": "Premium Sound System", "description": "High-quality audio with subwoofers", "type": "premium", "price": 6000},
+        {"name": "Wireless Microphones (pair)", "description": "Professional wireless mics", "type": "standard", "price": 1000},
+        {"name": "LED Screen (100 inch)", "description": "Large display screen", "type": "premium", "price": 8000},
+        {"name": "Projector Setup", "description": "HD projector with screen", "type": "standard", "price": 4000}
+    ],
+    "catering": [
+        {"name": "Serving Staff (per person)", "description": "Professional service staff", "type": "standard", "price": 800},
+        {"name": "Chef for Live Counter", "description": "Live cooking chef", "type": "standard", "price": 1500},
+        {"name": "Bartender Service", "description": "Professional bartender", "type": "standard", "price": 2000},
+        {"name": "Crockery & Cutlery (per plate)", "description": "Premium dining ware", "type": "standard", "price": 50},
+        {"name": "Chafing Dishes (per unit)", "description": "Food warming equipment", "type": "standard", "price": 300}
+    ],
+    "valet": [
+        {"name": "Valet Parking (4 hours)", "description": "Professional valet service", "type": "standard", "price": 5000},
+        {"name": "Security Personnel (per person)", "description": "Trained security guard", "type": "standard", "price": 1500},
+        {"name": "Parking Attendant", "description": "Parking management staff", "type": "standard", "price": 1000}
+    ],
+    "gifts": [
+        {"name": "Return Gift Packaging (per piece)", "description": "Elegant gift wrapping", "type": "standard", "price": 50},
+        {"name": "Welcome Gift Baskets (per piece)", "description": "Guest welcome hampers", "type": "premium", "price": 200},
+        {"name": "Chocolate Favors (per piece)", "description": "Premium chocolates", "type": "standard", "price": 30},
+        {"name": "Customized Souvenirs (per piece)", "description": "Personalized keepsakes", "type": "premium", "price": 100}
+    ],
+    "miscellaneous": [
+        {"name": "Generator Backup", "description": "Power backup for event", "type": "standard", "price": 5000},
+        {"name": "Air Conditioning (per AC)", "description": "Portable AC units", "type": "standard", "price": 2000},
+        {"name": "Tent/Canopy Setup", "description": "Outdoor tent arrangement", "type": "standard", "price": 8000},
+        {"name": "Furniture Rental Package", "description": "Lounge furniture setup", "type": "premium", "price": 6000},
+        {"name": "Event Planner Service", "description": "Professional event coordination", "type": "premium", "price": 15000}
+    ]
+}

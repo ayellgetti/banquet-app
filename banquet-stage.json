@@ -1,0 +1,40 @@
+{
+    "stageSetup": [
+        {"name": "Standard Stage (10x10 ft)", "description": "Basic stage platform with railing", "type": "standard", "price": 3000},
+        {"name": "Premium Stage (15x15 ft)", "description": "Large stage with professional finish", "type": "premium", "price": 5000},
+        {"name": "Elevated Stage (20x15 ft)", "description": "High-rise stage with steps", "type": "premium", "price": 7000},
+        {"name": "Rotating Stage", "description": "Motorized rotating platform", "type": "luxury", "price": 15000},
+        {"name": "Multi-level Stage", "description": "Tiered stage setup", "type": "premium", "price": 8000}
+    ],
+    "backdrop": [
+        {"name": "Fabric Backdrop", "description": "Elegant fabric stage backdrop", "type": "standard", "price": 2000},
+        {"name": "Floral Backdrop", "description": "Fresh flower wall backdrop", "type": "premium", "price": 5000},
+        {"name": "LED Backdrop", "description": "Animated LED screen backdrop", "type": "luxury", "price": 10000},
+        {"name": "3D Backdrop", "description": "3D decorative elements backdrop", "type": "premium", "price": 6000},
+        {"name": "Branded Backdrop", "description": "Custom logo/name backdrop", "type": "standard", "price": 3000}
+    ],
+    "podium": [
+        {"name": "Wooden Podium", "description": "Classic wooden speaker podium", "type": "standard", "price": 1000},
+        {"name": "Acrylic Podium", "description": "Modern transparent podium", "type": "premium", "price": 1500},
+        {"name": "LED Podium", "description": "Illuminated podium with lights", "type": "premium", "price": 2000},
+        {"name": "Portable Lectern", "description": "Adjustable portable lectern", "type": "standard", "price": 800}
+    ],
+    "stageDecor": [
+        {"name": "Stage Flower Arrangements", "description": "Fresh flower decorations for stage", "type": "standard", "price": 2500},
+        {"name": "Stage Draping", "description": "Premium fabric draping for stage", "type": "standard", "price": 3000},
+        {"name": "Stage Props", "description": "Custom theme-based props", "type": "premium", "price": 4000},
+        {"name": "Stage Lighting Package", "description": "Professional stage lights", "type": "premium", "price": 5000}
+    ],
+    "carpet": [
+        {"name": "Red Carpet Runner", "description": "Classic red carpet for stage", "type": "standard", "price": 800},
+        {"name": "White Carpet Runner", "description": "Elegant white stage carpet", "type": "standard", "price": 800},
+        {"name": "Customized Carpet", "description": "Personalized design carpet", "type": "premium", "price": 1500}
+    ],
+    "specialEffects": [
+        {"name": "Fog Machine", "description": "Professional fog effect", "type": "premium", "price": 2000},
+        {"name": "Bubble Machine", "description": "Continuous bubble effects", "type": "standard", "price": 1200},
+        {"name": "Confetti Cannon", "description": "Celebration confetti blast", "type": "premium", "price": 1500},
+        {"name": "Cold Spark Machine", "description": "Safe indoor fireworks effect", "type": "luxury", "price": 5000},
+        {"name": "CO2 Jets", "description": "Dramatic CO2 smoke jets", "type": "luxury", "price": 4000}
+    ]
+}

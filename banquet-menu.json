@@ -1,0 +1,119 @@
+{
+    "menuPackages": [
+        {"name": "Basic Menu Package (per person)", "description": "1 Welcome Drink + 1 Starter + 1 Main Course + Rice + Roti + Sweet", "type": "veg", "price": 900},
+        {"name": "Standard Menu Package (per person)", "description": "2 Welcome Drinks + 2 Starters + 2 Main Courses + Dal + Rice/Pulao + 2 Rotis + Sweet", "type": "veg", "price": 1000},
+        {"name": "Premium Menu Package (per person)", "description": "3 Welcome Drinks + Soup + Salad + 3 Starters + 3 Main Courses + Dal + Rice + Pulao + 3 Rotis + 2 Sweets", "type": "veg", "price": 1100}
+    ],
+    "welcomeDrink": [
+        {"name": "Fresh Lime Soda", "description": "Refreshing lime with soda water", "type": "veg", "price": 30},
+        {"name": "Watermelon Cooler", "description": "Fresh watermelon juice", "type": "veg", "price": 35},
+        {"name": "Mango Lassi", "description": "Traditional yogurt mango drink", "type": "veg", "price": 40}
+    ],
+    "soup": [
+        {"name": "Vegetable Soup", "description": "Mixed vegetable clear soup", "type": "veg", "price": 50},
+        {"name": "Tomato Soup", "description": "Creamy tomato soup", "type": "veg", "price": 50},
+        {"name": "Chicken Soup", "description": "Clear chicken broth", "type": "non-veg", "price": 70},
+        {"name": "Manchow Soup", "description": "Spicy Indo-Chinese soup", "type": "veg", "price": 55}
+    ],
+    "salad": [
+        {"name": "Garden Fresh Salad", "description": "Mixed greens with vinaigrette", "type": "veg", "price": 60},
+        {"name": "Russian Salad", "description": "Creamy vegetable salad", "type": "veg", "price": 65},
+        {"name": "Greek Salad", "description": "Feta cheese with olives and tomatoes", "type": "veg", "price": 80},
+        {"name": "Caesar Salad", "description": "Romaine lettuce with Caesar dressing", "type": "veg", "price": 75}
+    ],
+    "raita": [
+        {"name": "Boondi Raita", "description": "Yogurt with fried gram flour pearls", "type": "veg", "price": 35},
+        {"name": "Cucumber Raita", "description": "Fresh cucumber in yogurt", "type": "veg", "price": 30},
+        {"name": "Mixed Vegetable Raita", "description": "Assorted vegetables in yogurt", "type": "veg", "price": 40},
+        {"name": "Pineapple Raita", "description": "Sweet pineapple chunks in yogurt", "type": "veg", "price": 45}
+    ],
+    "vegStarter": [
+        {"name": "Paneer Tikka", "description": "Grilled cottage cheese with spices", "type": "veg", "price": 150},
+        {"name": "Hara Bhara Kabab", "description": "Spinach and green pea patties", "type": "veg", "price": 120},
+        {"name": "Veg Spring Roll", "description": "Crispy vegetable rolls", "type": "veg", "price": 100},
+        {"name": "Gobi Manchurian", "description": "Cauliflower in spicy Manchurian sauce", "type": "veg", "price": 110},
+        {"name": "Veg Seekh Kabab", "description": "Grilled vegetable skewers", "type": "veg", "price": 130}
+    ],
+    "nonVegStarter": [
+        {"name": "Chicken Tikka", "description": "Grilled chicken marinated in spices", "type": "non-veg", "price": 180},
+        {"name": "Tandoori Chicken", "description": "Classic tandoor grilled chicken", "type": "non-veg", "price": 200},
+        {"name": "Fish Finger", "description": "Crispy fried fish strips", "type": "non-veg", "price": 160},
+        {"name": "Mutton Seekh Kabab", "description": "Minced mutton on skewers", "type": "non-veg", "price": 220},
+        {"name": "Chicken 65", "description": "Spicy deep fried chicken", "type": "non-veg", "price": 170}
+    ],
+    "mainCourse": [
+        {"name": "Paneer Butter Masala", "description": "Cottage cheese in rich tomato gravy", "type": "veg", "price": 160},
+        {"name": "Dal Makhani", "description": "Black lentils in creamy gravy", "type": "veg", "price": 120},
+        {"name": "Mix Veg Curry", "description": "Assorted vegetables in curry", "type": "veg", "price": 130},
+        {"name": "Chana Masala", "description": "Chickpeas in spicy gravy", "type": "veg", "price": 100},
+        {"name": "Malai Kofta", "description": "Vegetable dumplings in creamy sauce", "type": "veg", "price": 150}
+    ],
+    "nonVegMainCourse": [
+        {"name": "Butter Chicken", "description": "Chicken in rich tomato butter gravy", "type": "non-veg", "price": 200},
+        {"name": "Chicken Curry", "description": "Traditional chicken curry", "type": "non-veg", "price": 180},
+        {"name": "Mutton Rogan Josh", "description": "Tender mutton in aromatic gravy", "type": "non-veg", "price": 250},
+        {"name": "Fish Curry", "description": "Fish cooked in spicy curry", "type": "non-veg", "price": 210},
+        {"name": "Egg Curry", "description": "Boiled eggs in masala gravy", "type": "non-veg", "price": 100}
+    ],
+    "dal": [
+        {"name": "Dal Tadka", "description": "Yellow lentils tempered with spices", "type": "veg", "price": 80},
+        {"name": "Dal Fry", "description": "Fried lentils with onions", "type": "veg", "price": 85},
+        {"name": "Dal Makhani", "description": "Black lentils in butter", "type": "veg", "price": 110}
+    ],
+    "rice": [
+        {"name": "Steamed Rice", "description": "Plain steamed basmati rice", "type": "veg", "price": 60},
+        {"name": "Jeera Rice", "description": "Cumin flavored rice", "type": "veg", "price": 70},
+        {"name": "Lemon Rice", "description": "Tangy lemon flavored rice", "type": "veg", "price": 75}
+    ],
+    "pulao": [
+        {"name": "Veg Pulao", "description": "Fragrant rice with vegetables", "type": "veg", "price": 100},
+        {"name": "Peas Pulao", "description": "Rice with green peas", "type": "veg", "price": 90},
+        {"name": "Kashmiri Pulao", "description": "Sweet pulao with dry fruits", "type": "veg", "price": 110}
+    ],
+    "roti": [
+        {"name": "Tandoori Roti", "description": "Whole wheat flatbread from tandoor", "type": "veg", "price": 15},
+        {"name": "Butter Naan", "description": "Leavened bread with butter", "type": "veg", "price": 25},
+        {"name": "Garlic Naan", "description": "Naan with garlic topping", "type": "veg", "price": 30},
+        {"name": "Plain Paratha", "description": "Layered flatbread", "type": "veg", "price": 20},
+        {"name": "Laccha Paratha", "description": "Multi-layered crispy bread", "type": "veg", "price": 25}
+    ],
+    "sweet": [
+        {"name": "Gulab Jamun", "description": "Deep fried milk dumplings in syrup", "type": "veg", "price": 40},
+        {"name": "Rasmalai", "description": "Cottage cheese patties in sweet milk", "type": "veg", "price": 50},
+        {"name": "Kheer", "description": "Rice pudding with cardamom", "type": "veg", "price": 45},
+        {"name": "Gajar Halwa", "description": "Carrot pudding with ghee", "type": "veg", "price": 55},
+        {"name": "Moong Dal Halwa", "description": "Lentil pudding with dry fruits", "type": "veg", "price": 60}
+    ],
+    "iceCream": [
+        {"name": "Vanilla Ice Cream", "description": "Classic vanilla flavor", "type": "veg", "price": 50},
+        {"name": "Chocolate Ice Cream", "description": "Rich chocolate flavor", "type": "veg", "price": 50},
+        {"name": "Strawberry Ice Cream", "description": "Fresh strawberry flavor", "type": "veg", "price": 55},
+        {"name": "Mango Ice Cream", "description": "Tropical mango flavor", "type": "veg", "price": 55},
+        {"name": "Kulfi", "description": "Traditional Indian ice cream", "type": "veg", "price": 45}
+    ],
+    "vegBriyani": [
+        {"name": "Hyderabadi Veg Biryani", "description": "Fragrant rice with vegetables", "type": "veg", "price": 140},
+        {"name": "Paneer Biryani", "description": "Cottage cheese layered biryani", "type": "veg", "price": 160},
+        {"name": "Mushroom Biryani", "description": "Aromatic mushroom rice", "type": "veg", "price": 150}
+    ],
+    "nonVegBriyani": [
+        {"name": "Chicken Biryani", "description": "Classic chicken biryani", "type": "non-veg", "price": 180},
+        {"name": "Mutton Biryani", "description": "Tender mutton biryani", "type": "non-veg", "price": 230},
+        {"name": "Egg Biryani", "description": "Boiled eggs with fragrant rice", "type": "non-veg", "price": 130},
+        {"name": "Fish Biryani", "description": "Coastal style fish biryani", "type": "non-veg", "price": 200}
+    ],
+    "liveCounter": [
+        {"name": "Pav Bhaji Counter", "description": "Live pav bhaji preparation", "type": "veg", "price": 80},
+        {"name": "Dosa Counter", "description": "Fresh dosas made to order", "type": "veg", "price": 70},
+        {"name": "Pasta Counter", "description": "Customized pasta preparations", "type": "veg", "price": 100},
+        {"name": "Chaat Counter", "description": "Assorted street food chaats", "type": "veg", "price": 60},
+        {"name": "Grill Counter", "description": "Live grilled items", "type": "both", "price": 150}
+    ],
+    "snacks": [
+        {"name": "Samosa", "description": "Crispy pastry with potato filling", "type": "veg", "price": 20},
+        {"name": "Pakora", "description": "Mixed vegetable fritters", "type": "veg", "price": 25},
+        {"name": "Vada Pav", "description": "Potato patty in bun", "type": "veg", "price": 20},
+        {"name": "Bread Pakora", "description": "Stuffed bread fritters", "type": "veg", "price": 25},
+        {"name": "Kachori", "description": "Spicy lentil filled pastry", "type": "veg", "price": 20}
+    ]
+}

@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Complete Banquet Booking Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px 0;
+      min-height: 100vh;
+    }
+    
+    .main-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    .page-header {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+    }
+    
+    .page-header h1 {
+      font-size: 3em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .page-header p {
+      font-size: 1.3em;
+      opacity: 0.95;
+    }
+    
+    .content-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    
+    .main-content {
+      flex: 1;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    
+    .selection-sidebar {
+      width: 380px;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 20px;
+      max-height: calc(100vh - 40px);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Tab Navigation */
+    .tab-navigation {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+      flex: 1;
+      min-width: 150px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1.05em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      position: relative;
+    }
+    
+    .tab-btn:last-child {
+      border-right: none;
+    }
+    
+    .tab-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .tab-btn.active {
+      background: white;
+      color: #667eea;
+    }
+    
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #667eea;
+    }
+    
+    .tab-icon {
+      font-size: 1.3em;
+      margin-right: 8px;
+    }
+    
+    /* Tab Content */
+    .tab-content-wrapper {
+      padding: 30px;
+    }
+    
+    .tab-pane {
+      display: none;
+    }
+    
+    .tab-pane.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .section-title {
+      color: #667eea;
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .filter-section {
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 10px;
+    }
+    
+    .filter-label {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 1em;
+    }
+    
+    .filter-btn {
+      margin: 5px;
+      padding: 6px 16px;
+      border: 2px solid #667eea;
+      background: white;
+      color: #667eea;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 0.9em;
+    }
+    
+    .filter-btn:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .filter-btn.active {
+      background: #667eea;
+      color: white;
+    }
+    
+    .panel-group {
+      margin-top: 15px;
+    }
+    
+    .panel {
+      border: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 12px;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .panel:hover {
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      transform: translateY(-2px);
+    }
+    
+    .panel-heading {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      padding: 0;
+    }
+    
+    .panel-title a {
+      display: block;
+      padding: 12px 18px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05em;
+      transition: all 0.3s ease;
+    }
+    
+    .panel-title a:hover {
+      background: rgba(255,255,255,0.1);
+      text-decoration: none;
+    }
+    
+    .panel-title a:after {
+      content: '\25BC';
+      float: right;
+      transition: transform 0.3s ease;
+      font-size: 0.8em;
+    }
+    
+    .panel-title a.collapsed:after {
+      transform: rotate(-90deg);
+    }
+    
+    .panel-body {
+      padding: 15px;
+      background: #f9f9f9;
+    }
+    
+    .menu-item {
+      background: white;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .menu-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .menu-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .item-checkbox {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    
+    .item-details {
+      flex: 1;
+    }
+    
+    .item-name {
+      font-weight: 600;
+      color: #333;
+      font-size: 1em;
+      margin-bottom: 3px;
+    }
+    
+    .item-description {
+      color: #666;
+      font-size: 0.85em;
+      margin: 0;
+    }
+    
+    .item-price {
+      flex-shrink: 0;
+      font-weight: 700;
+      color: #667eea;
+      font-size: 1.05em;
+    }
+    
+    .item-type {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.7em;
+      font-weight: 600;
+      margin-left: 8px;
+      text-transform: uppercase;
+    }
+    
+    .type-veg { background: #d4edda; color: #155724; }
+    .type-non-veg { background: #f8d7da; color: #721c24; }
+    .type-both { background: #fff3cd; color: #856404; }
+    .type-standard { background: #d4edda; color: #155724; }
+    .type-premium { background: #fff3cd; color: #856404; }
+    .type-luxury { background: #cce5ff; color: #004085; }
+    .type-budget { background: #f8d7da; color: #721c24; }
+    
+    /* Selection Sidebar */
+    .selection-header {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #667eea;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #667eea;
+    }
+    
+    .selected-items-container {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+    
+    .selected-item {
+      background: #f9f9f9;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9em;
+    }
+    
+    .selected-item-name {
+      font-weight: 500;
+      color: #333;
+      flex: 1;
+    }
+    
+    .selected-item-section {
+      font-size: 0.75em;
+      color: #999;
+      display: block;
+    }
+    
+    .selected-item-price {
+      font-weight: 600;
+      color: #667eea;
+      margin-left: 10px;
+    }
+    
+    .remove-btn {
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-left: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .remove-btn:hover {
+      background: #c82333;
+      transform: scale(1.1);
+    }
+    
+    .total-section {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 2px solid #667eea;
+      font-size: 1.2em;
+      font-weight: 700;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .total-price {
+      color: #667eea;
+    }
+    
+    .empty-selection {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      font-style: italic;
+      font-size: 0.95em;
+    }
+    
+    .clear-all-btn {
+      width: 100%;
+      padding: 10px;
+      background: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .clear-all-btn:hover {
+      background: #c82333;
+      transform: translateY(-2px);
+    }
+    
+    .order-form {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 2px solid #667eea;
+    }
+    
+    .form-group {
+      margin-bottom: 10px;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+      font-size: 0.85em;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 0.9em;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    
+    .send-order-btn {
+      width: 100%;
+      padding: 12px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .send-order-btn:hover {
+      background: #218838;
+      transform: translateY(-2px);
+    }
+    
+    .send-order-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+      text-align: center;
+      font-weight: 600;
+      display: none;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #667eea;
+      font-size: 1.2em;
+    }
+    
+    @media (max-width: 1200px) {
+      .content-wrapper {
+        flex-direction: column;
+      }
+      
+      .selection-sidebar {
+        width: 100%;
+        position: relative;
+        order: -1;
+        max-height: none;
+      }
+      
+      .tab-btn {
+        font-size: 0.9em;
+        padding: 12px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+  <div class="page-header">
+    <h1>🎉 Complete Banquet Booking</h1>
+    <p>Plan your perfect event - Venue, Menu, Decorations & More</p>
+  </div>
+  
+  <div class="content-wrapper">
+    <div class="main-content">
+      <!-- Tab Navigation -->
+      <div class="tab-navigation">
+        <button class="tab-btn active" data-tab="venue">
+          <span class="tab-icon">🏛️</span> Venue
+        </button>
+        <button class="tab-btn" data-tab="menu">
+          <span class="tab-icon">🍽️</span> Menu
+        </button>
+        <button class="tab-btn" data-tab="decorations">
+          <span class="tab-icon">🎨</span> Decorations
+        </button>
+        <button class="tab-btn" data-tab="chairs">
+          <span class="tab-icon">🪑</span> Chairs
+        </button>
+        <button class="tab-btn" data-tab="extras">
+          <span class="tab-icon">✨</span> Extras
+        </button>
+        <button class="tab-btn" data-tab="stage">
+          <span class="tab-icon">🎭</span> Stage
+        </button>
+      </div>
+      
+      <!-- Tab Content -->
+      <div class="tab-content-wrapper">
+        <!-- Venue Tab -->
+        <div id="venue-tab" class="tab-pane active">
+          <h3 class="section-title">Venue & Utilities</h3>
+          <div class="filter-section">
+            <div class="filter-label">Filter by Type:</div>
+            <button class="filter-btn active" data-section="venue" data-filter="all">All</button>
+            <button class="filter-btn" data-section="venue" data-filter="standard">Standard</button>
+            <button class="filter-btn" data-section="venue" data-filter="premium">Premium</button>
+            <button class="filter-btn" data-section="venue" data-filter="luxury">Luxury</button>
+          </div>
+          <div id="venue-loading" class="loading">Loading venue options...</div>
+          <div class="panel-group" id="venue-accordion" style="display: none;"></div>
+        </div>
+        
+        <!-- Menu Tab -->
+        <div id="menu-tab" class="tab-pane">
+          <h3 class="section-title">Banquet Menu</h3>
+          <div class="filter-section">
+            <div class="filter-label">Filter by Type:</div>
+            <button class="filter-btn active" data-section="menu" data-filter="all">All</button>
+            <button class="filter-btn" data-section="menu" data-filter="veg">Vegetarian</button>
+            <button class="filter-btn" data-section="menu" data-filter="non-veg">Non-Veg</button>
+          </div>
+          <div id="menu-loading" class="loading">Loading menu...</div>
+          <div class="panel-group" id="menu-accordion" style="display: none;"></div>
+        </div>
+        
+        <!-- Decorations Tab -->
+        <div id="decorations-tab" class="tab-pane">
+          <h3 class="section-title">Decorations</h3>
+          <div class="filter-section">
+            <div class="filter-label">Filter by Package:</div>
+            <button class="filter-btn active" data-section="decorations" data-filter="all">All</button>
+            <button class="filter-btn" data-section="decorations" data-filter="standard">Standard</button>
+            <button class="filter-btn" data-section="decorations" data-filter="premium">Premium</button>
+            <button class="filter-btn" data-section="decorations" data-filter="luxury">Luxury</button>
+            <button class="filter-btn" data-section="decorations" data-filter="budget">Budget</button>
+          </div>
+          <div id="decorations-loading" class="loading">Loading decorations...</div>
+          <div class="panel-group" id="decorations-accordion" style="display: none;"></div>
+        </div>
+        
+        <!-- Chairs Tab -->
+        <div id="chairs-tab" class="tab-pane">
+          <h3 class="section-title">Chairs & Seating</h3>
+          <div class="filter-section">
+            <div class="filter-label">Filter by Type:</div>
+            <button class="filter-btn active" data-section="chairs" data-filter="all">All</button>
+            <button class="filter-btn" data-section="chairs" data-filter="standard">Standard</button>
+            <button class="filter-btn" data-section="chairs" data-filter="premium">Premium</button>
+            <button class="filter-btn" data-section="chairs" data-filter="luxury">Luxury</button>
+            <button class="filter-btn" data-section="chairs" data-filter="budget">Budget</button>
+          </div>
+          <div id="chairs-loading" class="loading">Loading chairs...</div>
+          <div class="panel-group" id="chairs-accordion" style="display: none;"></div>
+        </div>
+        
+        <!-- Extras Tab -->
+        <div id="extras-tab" class="tab-pane">
+          <h3 class="section-title">Extras & Services</h3>
+          <div class="filter-section">
+            <div class="filter-label">Filter by Type:</div>
+            <button class="filter-btn active" data-section="extras" data-filter="all">All</button>
+            <button class="filter-btn" data-section="extras" data-filter="standard">Standard</button>
+            <button class="filter-btn" data-section="extras" data-filter="premium">Premium</button>
+            <button class="filter-btn" data-section="extras" data-filter="luxury">Luxury</button>
+          </div>
+          <div id="extras-loading" class="loading">Loading extras...</div>
+          <div class="panel-group" id="extras-accordion" style="display: none;"></div>
+        </div>
+        
+        <!-- Stage Tab -->
+        <div id="stage-tab" class="tab-pane">
+          <h3 class="section-title">Stage & Effects</h3>
+          <div class="filter-section">
+            <div class="filter-label">Filter by Type:</div>
+            <button class="filter-btn active" data-section="stage" data-filter="all">All</button>
+            <button class="filter-btn" data-section="stage" data-filter="standard">Standard</button>
+            <button class="filter-btn" data-section="stage" data-filter="premium">Premium</button>
+            <button class="filter-btn" data-section="stage" data-filter="luxury">Luxury</button>
+          </div>
+          <div id="stage-loading" class="loading">Loading stage options...</div>
+          <div class="panel-group" id="stage-accordion" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Selection Sidebar -->
+    <div class="selection-sidebar">
+      <div class="selection-header">Your Selection</div>
+      <div class="selected-items-container">
+        <div id="selected-items">
+          <div class="empty-selection">No items selected yet. Browse and select items from different sections.</div>
+        </div>
+      </div>
+      <div id="total-section" style="display: none;">
+        <div class="total-section">
+          <span>Total:</span>
+          <span class="total-price">₹<span id="total-price">0</span></span>
+        </div>
+        <button class="clear-all-btn" id="clear-all">Clear All</button>
+        
+        <div class="order-form">
+          <div class="form-group">
+            <label class="form-label">Your Name *</label>
+            <input type="text" class="form-input" id="customer-name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Email *</label>
+            <input type="email" class="form-input" id="customer-email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" id="customer-phone" placeholder="Enter phone number" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Event Date</label>
+            <input type="date" class="form-input" id="event-date">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Number of Guests</label>
+            <input type="number" class="form-input" id="guest-count" placeholder="Expected guests">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Additional Notes</label>
+            <textarea class="form-input" id="notes" rows="2" placeholder="Any special requests..."></textarea>
+          </div>
+          <button class="send-order-btn" id="send-order">Send Complete Request</button>
+          <div class="success-message" id="success-message">Request sent successfully!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  let allData = {
+    venue: {},
+    menu: {},
+    decorations: {},
+    chairs: {},
+    extras: {},
+    stage: {}
+  };
+  
+  let selectedItems = [];
+  let currentFilters = {
+    venue: 'all',
+    menu: 'all',
+    decorations: 'all',
+    chairs: 'all',
+    extras: 'all',
+    stage: 'all'
+  };
+  
+  // Section configurations
+  const sectionConfigs = {
+    venue: {
+      file: 'banquet-venue.json',
+      categories: [
+        { key: 'hallRent', title: 'Hall Rental', icon: '🏛️' },
+        { key: 'utilities', title: 'Utilities & Services', icon: '⚡' },
+        { key: 'amenities', title: 'Amenities', icon: '🚿' },
+        { key: 'timing', title: 'Time Slots', icon: '⏰' },
+        { key: 'deposit', title: 'Deposits & Fees', icon: '💰' }
+      ]
+    },
+    menu: {
+      file: 'banquet-menu.json',
+      categories: [
+        { key: 'menuPackages', title: 'Menu Packages', icon: '📦' },
+        { key: 'welcomeDrink', title: 'Welcome Drink', icon: '🥤' },
+        { key: 'soup', title: 'Soup', icon: '🍲' },
+        { key: 'salad', title: 'Salad', icon: '🥗' },
+        { key: 'raita', title: 'Raita', icon: '🥛' },
+        { key: 'vegStarter', title: 'Veg Starter', icon: '🌱' },
+        { key: 'nonVegStarter', title: 'Non-Veg Starter', icon: '🍗' },
+        { key: 'mainCourse', title: 'Main Course', icon: '🍛' },
+        { key: 'nonVegMainCourse', title: 'Non-Veg Main Course', icon: '🍖' },
+        { key: 'dal', title: 'Dal', icon: '🫘' },
+        { key: 'rice', title: 'Rice', icon: '🍚' },
+        { key: 'pulao', title: 'Pulao', icon: '🍛' },
+        { key: 'roti', title: 'Roti', icon: '🫓' },
+        { key: 'sweet', title: 'Sweet', icon: '🍮' },
+        { key: 'iceCream', title: 'Ice Cream', icon: '🍨' },
+        { key: 'vegBriyani', title: 'Veg Briyani', icon: '🍚' },
+        { key: 'nonVegBriyani', title: 'Non Veg Briyani', icon: '🍛' },
+        { key: 'liveCounter', title: 'Live Counter', icon: '👨‍🍳' },
+        { key: 'snacks', title: 'Snacks', icon: '🍿' }
+      ]
+    },
+    decorations: {
+      file: 'banquet-decorations.json',
+      categories: [
+        { key: 'flowers', title: 'Flowers', icon: '🌸' },
+        { key: 'lighting', title: 'Lighting', icon: '💡' },
+        { key: 'drapes', title: 'Drapes & Fabrics', icon: '🎭' },
+        { key: 'balloons', title: 'Balloons', icon: '🎈' },
+        { key: 'centerpieces', title: 'Centerpieces', icon: '🕯️' },
+        { key: 'entrance', title: 'Entrance Decoration', icon: '🚪' },
+        { key: 'themeDecor', title: 'Theme Packages', icon: '🎨' }
+      ]
+    },
+    chairs: {
+      file: 'banquet-chairs.json',
+      categories: [
+        { key: 'chairTypes', title: 'Chair Types', icon: '🪑' },
+        { key: 'chairCovers', title: 'Chair Covers', icon: '🎀' },
+        { key: 'sashes', title: 'Sashes & Ribbons', icon: '🎗️' },
+        { key: 'seatingArrangement', title: 'Seating Arrangement', icon: '🎯' },
+        { key: 'specialSeating', title: 'Special Seating', icon: '👑' }
+      ]
+    },
+    extras: {
+      file: 'banquet-extras.json',
+      categories: [
+        { key: 'entertainment', title: 'Entertainment', icon: '🎵' },
+        { key: 'photography', title: 'Photography', icon: '📸' },
+        { key: 'soundSystem', title: 'Sound System', icon: '🔊' },
+        { key: 'catering', title: 'Catering Staff', icon: '👨‍🍳' },
+        { key: 'valet', title: 'Valet & Security', icon: '🚗' },
+        { key: 'gifts', title: 'Gifts & Favors', icon: '🎁' },
+        { key: 'miscellaneous', title: 'Miscellaneous', icon: '⚙️' }
+      ]
+    },
+    stage: {
+      file: 'banquet-stage.json',
+      categories: [
+        { key: 'stageSetup', title: 'Stage Setup', icon: '🎭' },
+        { key: 'backdrop', title: 'Backdrops', icon: '🖼️' },
+        { key: 'podium', title: 'Podium', icon: '🎤' },
+        { key: 'stageDecor', title: 'Stage Decoration', icon: '✨' },
+        { key: 'carpet', title: 'Carpet & Runners', icon: '🔴' },
+        { key: 'specialEffects', title: 'Special Effects', icon: '💨' }
+      ]
+    }
+  };
+  
+  // Load all data
+  function loadSectionData(section) {
+    $.getJSON(sectionConfigs[section].file, function(data) {
+      allData[section] = data;
+      renderSection(section);
+      $(`#${section}-loading`).hide();
+      $(`#${section}-accordion`).fadeIn();
+    }).fail(function() {
+      $(`#${section}-loading`).html(`Error loading ${section} data.`).css('color', '#dc3545');
+    });
+  }
+  
+  // Load all sections
+  Object.keys(sectionConfigs).forEach(section => loadSectionData(section));
+  
+  // Tab switching
+  $('.tab-btn').click(function() {
+    const targetTab = $(this).data('tab');
+    
+    $('.tab-btn').removeClass('active');
+    $(this).addClass('active');
+    
+    $('.tab-pane').removeClass('active');
+    $(`#${targetTab}-tab`).addClass('active');
+  });
+  
+  // Filter buttons
+  $('.filter-btn').click(function() {
+    const section = $(this).data('section');
+    const filter = $(this).data('filter');
+    
+    $(`.filter-btn[data-section="${section}"]`).removeClass('active');
+    $(this).addClass('active');
+    
+    currentFilters[section] = filter;
+    renderSection(section);
+  });
+  
+  // Render section based on filter
+  function renderSection(section) {
+    const config = sectionConfigs[section];
+    const data = allData[section];
+    const filter = currentFilters[section];
+    let accordionHTML = '';
+    
+    config.categories.forEach(function(category, index) {
+      const items = data[category.key];
+      if (!items || items.length === 0) return;
+      
+      // Filter items
+      const filteredItems = items.filter(item => {
+        if (filter === 'all') return true;
+        if (section === 'menu') {
+          if (filter === 'veg') return item.type === 'veg';
+          if (filter === 'non-veg') return item.type === 'non-veg' || item.type === 'veg';
+        } else {
+          return item.type === filter;
+        }
+        return true;
+      });
+      
+      if (filteredItems.length === 0) return;
+      
+      const collapseId = `${section}-collapse${index}`;
+      
+      // Build items HTML
+      let itemsHTML = '';
+      filteredItems.forEach(function(item) {
+        const typeClass = 'type-' + item.type;
+        const typeLabel = item.type.toUpperCase();
+        
+        const itemId = `${section}_${category.key}_${item.name.replace(/\s+/g, '_')}`;
+        const isChecked = selectedItems.some(si => si.id === itemId) ? 'checked' : '';
+        
+        itemsHTML += `
+          <div class="menu-item">
+            <input type="checkbox" class="item-checkbox" 
+                   data-id="${itemId}" 
+                   data-name="${item.name}" 
+                   data-price="${item.price}" 
+                   data-category="${category.title}"
+                   data-section="${section}" ${isChecked}>
+            <div class="item-details">
+              <div class="item-name">
+                ${item.name}
+                <span class="item-type ${typeClass}">${typeLabel}</span>
+              </div>
+              <p class="item-description">${item.description}</p>
+            </div>
+            <div class="item-price">₹${item.price}</div>
+          </div>
+        `;
+      });
+      
+      // Build panel
+      accordionHTML += `
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#${section}-accordion" 
+                 href="#${collapseId}" class="collapsed">
+                ${category.icon} ${category.title}
+              </a>
+            </h4>
+          </div>
+          <div id="${collapseId}" class="panel-collapse collapse">
+            <div class="panel-body">
+              ${itemsHTML}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    
+    if (accordionHTML === '') {
+      accordionHTML = '<div class="loading">No items found for this filter.</div>';
+    }
+    
+    $(`#${section}-accordion`).html(accordionHTML);
+    
+    // Attach checkbox handlers
+    $(`.item-checkbox[data-section="${section}"]`).change(handleItemSelection);
+  }
+  
+  // Handle item selection
+  function handleItemSelection() {
+    const checkbox = $(this);
+    const itemId = checkbox.data('id');
+    const itemName = checkbox.data('name');
+    const itemPrice = checkbox.data('price');
+    const itemCategory = checkbox.data('category');
+    const itemSection = checkbox.data('section');
+    
+    if (checkbox.is(':checked')) {
+      selectedItems.push({
+        id: itemId,
+        name: itemName,
+        price: itemPrice,
+        category: itemCategory,
+        section: itemSection
+      });
+    } else {
+      selectedItems = selectedItems.filter(item => item.id !== itemId);
+    }
+    
+    updateSelectionDisplay();
+  }
+  
+  // Update selection display
+  function updateSelectionDisplay() {
+    if (selectedItems.length === 0) {
+      $('#selected-items').html('<div class="empty-selection">No items selected yet. Browse and select items from different sections.</div>');
+      $('#total-section').hide();
+    } else {
+      let itemsHTML = '';
+      selectedItems.forEach(item => {
+        // Display category name instead of section name
+        const categoryLabel = item.category;
+        itemsHTML += `
+          <div class="selected-item">
+            <div style="flex: 1;">
+              <span class="selected-item-name">${item.name}</span>
+              <span class="selected-item-section">${categoryLabel}</span>
+            </div>
+            <span class="selected-item-price">₹${item.price}</span>
+            <button class="remove-btn" data-id="${item.id}">×</button>
+          </div>
+        `;
+      });
+      
+      $('#selected-items').html(itemsHTML);
+      $('#total-section').show();
+      
+      // Calculate total
+      const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
+      $('#total-price').text(total.toLocaleString());
+      
+      // Attach remove button handlers
+      $('.remove-btn').click(function() {
+        const itemId = $(this).data('id');
+        $(`.item-checkbox[data-id="${itemId}"]`).prop('checked', false);
+        selectedItems = selectedItems.filter(item => item.id !== itemId);
+        updateSelectionDisplay();
+      });
+    }
+  }
+  
+  // Clear all button
+  $('#clear-all').click(function() {
+    selectedItems = [];
+    $('.item-checkbox').prop('checked', false);
+    updateSelectionDisplay();
+  });
+  
+  // Send order button
+  $('#send-order').click(function() {
+    const name = $('#customer-name').val().trim();
+    const email = $('#customer-email').val().trim();
+    const phone = $('#customer-phone').val().trim();
+    const eventDate = $('#event-date').val();
+    const guestCount = $('#guest-count').val();
+    const notes = $('#notes').val().trim();
+    
+    // Validation
+    if (!name || !email || !phone) {
+      alert('Please fill in all required fields (Name, Email, Phone)');
+      return;
+    }
+    
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+    
+    if (selectedItems.length === 0) {
+      alert('Please select at least one item');
+      return;
+    }
+    
+    // Build order details
+    let orderDetails = `COMPLETE BANQUET BOOKING REQUEST\n\n`;
+    orderDetails += `Customer Details:\n`;
+    orderDetails += `${'='.repeat(50)}\n`;
+    orderDetails += `Name: ${name}\n`;
+    orderDetails += `Email: ${email}\n`;
+    orderDetails += `Phone: ${phone}\n`;
+    if (eventDate) orderDetails += `Event Date: ${eventDate}\n`;
+    if (guestCount) orderDetails += `Number of Guests: ${guestCount}\n`;
+    orderDetails += `\n`;
+    
+    // Group items by section
+    const itemsBySection = {};
+    selectedItems.forEach(item => {
+      if (!itemsBySection[item.section]) {
+        itemsBySection[item.section] = {};
+      }
+      if (!itemsBySection[item.section][item.category]) {
+        itemsBySection[item.section][item.category] = [];
+      }
+      itemsBySection[item.section][item.category].push(item);
+    });
+    
+    // Add items by section and category
+    Object.keys(itemsBySection).forEach(section => {
+      const sectionLabel = section.charAt(0).toUpperCase() + section.slice(1);
+      orderDetails += `\n${sectionLabel.toUpperCase()}\n`;
+      orderDetails += `${'='.repeat(50)}\n`;
+      
+      Object.keys(itemsBySection[section]).forEach(category => {
+        orderDetails += `\n${category}:\n`;
+        itemsBySection[section][category].forEach(item => {
+          orderDetails += `  - ${item.name} - ₹${item.price}\n`;
+        });
+      });
+    });
+    
+    orderDetails += `\n${'='.repeat(50)}\n`;
+    const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
+    orderDetails += `TOTAL AMOUNT: ₹${total.toLocaleString()}\n`;
+    orderDetails += `${'='.repeat(50)}\n`;
+    
+    if (notes) {
+      orderDetails += `\nAdditional Notes:\n${notes}\n`;
+    }
+    
+    // Create mailto link
+    const businessEmail = 'banquet@yourbusiness.com';
+    const subject = `Complete Banquet Booking - ${name}`;
+    const body = encodeURIComponent(orderDetails);
+    const mailtoLink = `mailto:${businessEmail}?cc=${email}&subject=${encodeURIComponent(subject)}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    $('#success-message').fadeIn();
+    setTimeout(function() {
+      $('#success-message').fadeOut();
+    }, 3000);
+  });
+});
+</script>
+
+</body>
+</html>
