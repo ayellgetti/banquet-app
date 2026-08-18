@@ -1,0 +1,3 @@
+postgres:5432:*:banquet:banquet_secret
+localhost:5432:*:banquet:banquet_secret
+host.docker.internal:5432:*:banquet:banquet_secret

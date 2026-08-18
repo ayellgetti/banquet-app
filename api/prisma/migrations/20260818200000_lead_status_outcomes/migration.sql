@@ -1,0 +1,4 @@
+-- AlterEnum
+ALTER TYPE "LeadStatus" ADD VALUE 'FAKE';
+ALTER TYPE "LeadStatus" ADD VALUE 'NOT_INTERESTED';
+ALTER TYPE "LeadStatus" ADD VALUE 'OTHER';

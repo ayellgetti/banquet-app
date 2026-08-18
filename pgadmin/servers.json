@@ -1,0 +1,15 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Banquet CRM",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "banquet_crm",
+      "Username": "banquet",
+      "SSLMode": "prefer",
+      "PassFile": "/pgpass",
+      "Comment": "Existing Docker Postgres — banquet_crm"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Banquet CRM",
+      "Group": "Servers",
+      "Host": "localhost",
+      "Port": 5432,
+      "MaintenanceDB": "banquet_crm",
+      "Username": "banquet",
+      "SSLMode": "prefer",
+      "Comment": "Existing local Postgres — banquet_crm. Password: banquet_secret"
+    }
+  }
+}

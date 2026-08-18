@@ -1,0 +1,41 @@
+# Prefer the root docker-compose.yml in the monorepo.
+# Kept for API-only local Postgres when working inside ./api alone.
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: banquet-crm-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: banquet
+      POSTGRES_PASSWORD: banquet_secret
+      POSTGRES_DB: banquet_crm
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U banquet -d banquet_crm']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: banquet-crm-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@banquet.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - '5050:80'
+    volumes:
+      - ../pgadmin/servers.json:/pgadmin4/servers.json:ro
+      - ../pgadmin/pgpass:/pgpass:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
